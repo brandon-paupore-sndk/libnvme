@@ -2656,6 +2656,17 @@ int nvme_set_features_write_protect2(int fd, __u32 nsid,
 int nvme_set_features_iocs_profile(int fd, __u16 iocsi, bool save);
 
 /**
+ * nvme_set_features_telemetry_profile() - Set Telemetry Profile feature
+ * @fd:		File descriptor of nvme device
+ * @tps:	Telemetry Profile Select
+ * @result:	The command completion result from CQE dword0
+ *
+ * Return: The nvme command status if a response was received (see
+ * &enum nvme_status_field) or -1 with errno set otherwise.
+ */
+int nvme_set_features_telemetry_profile(int fd, __u8 tps, __u32 *result);
+
+/**
  * nvme_get_features() - Retrieve a feature attribute
  * @args:	&struct nvme_get_features_args argument structure
  *

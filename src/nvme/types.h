@@ -6993,6 +6993,7 @@ enum nvme_cmd_get_log_lid {
  * @NVME_FEAT_FID_RESV_MASK:		Reservation Notification Mask
  * @NVME_FEAT_FID_RESV_PERSIST:		Reservation Persistence
  * @NVME_FEAT_FID_WRITE_PROTECT:	Namespace Write Protection Config
+ * @NVME_FEAT_FID_TELEMETRY_PROFILE:	Set Telemetry Profile
  */
 enum nvme_features_id {
 	NVME_FEAT_FID_ARBITRATION				= 0x01,
@@ -7031,6 +7032,7 @@ enum nvme_features_id {
 	NVME_FEAT_FID_RESV_MASK					= 0x82,
 	NVME_FEAT_FID_RESV_PERSIST				= 0x83,
 	NVME_FEAT_FID_WRITE_PROTECT				= 0x84,
+	NVME_FEAT_FID_TELEMETRY_PROFILE				= 0xC8,
 };
 
 /**

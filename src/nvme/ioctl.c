@@ -911,7 +911,15 @@ int nvme_set_features_write_protect2(int fd, __u32 nsid,
 		fd, NVME_FEAT_FID_WRITE_PROTECT, nsid, state, false, result);
 }
 
-int nvme_set_features_iocs_profile(int fd, __u16 iocsi, bool save)
+int nvme_set_features_telemetry_profile(int fd, __u8 tps, __u32 *result)
+{
+	__u32 cdw11 = 0;
+	((__u8 *)&cdw11)[3] = tps;
+	return __nvme_set_features(fd, NVME_FEAT_FID_TELEMETRY_PROFILE,
+				   cdw11, true, result);
+}
+
+int nvme_set_features_iocs_profile(int fd, __u8 iocsi, bool save)
 {
 	__u32 value = NVME_SET(iocsi, FEAT_IOCSP_IOCSCI);
 
